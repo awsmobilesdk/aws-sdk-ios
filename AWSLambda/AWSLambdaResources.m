@@ -704,7 +704,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"InvalidParameterValueException\"}\
       ],\
-      \"documentation\":\"<p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p> <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>\"\
+      \"documentation\":\"<p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p> <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. </p> <note> <p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p> </note>\"\
     },\
     \"ListFunctionsByCodeSigningConfig\":{\
       \"name\":\"ListFunctionsByCodeSigningConfig\",\
@@ -3163,6 +3163,7 @@
     },\
     \"LayerPermissionAllowedAction\":{\
       \"type\":\"string\",\
+      \"max\":22,\
       \"pattern\":\"lambda:GetLayerVersion\"\
     },\
     \"LayerPermissionAllowedPrincipal\":{\
@@ -3500,7 +3501,7 @@
         },\
         \"MaxItems\":{\
           \"shape\":\"MaxListItems\",\
-          \"documentation\":\"<p>The maximum number of functions to return.</p>\",\
+          \"documentation\":\"<p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"MaxItems\"\
         }\
@@ -3803,6 +3804,7 @@
     },\
     \"OrganizationId\":{\
       \"type\":\"string\",\
+      \"max\":34,\
       \"pattern\":\"o-[a-z0-9]{10,32}\"\
     },\
     \"PackageType\":{\
@@ -3849,7 +3851,7 @@
     },\
     \"Principal\":{\
       \"type\":\"string\",\
-      \"pattern\":\".*\"\
+      \"pattern\":\"[^\\\\s]+\"\
     },\
     \"ProvisionedConcurrencyConfigList\":{\
       \"type\":\"list\",\
@@ -4411,6 +4413,7 @@
     },\
     \"SourceOwner\":{\
       \"type\":\"string\",\
+      \"max\":12,\
       \"pattern\":\"\\\\d{12}\"\
     },\
     \"State\":{\
