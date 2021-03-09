@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingBatchDeleteScheduledActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
 
@@ -284,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> *)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1308,7 +1308,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPolicyARNType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
 
@@ -1319,7 +1319,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
