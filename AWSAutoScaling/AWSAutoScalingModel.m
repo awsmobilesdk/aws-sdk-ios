@@ -2268,6 +2268,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"scheduledActionName" : @"ScheduledActionName",
              @"startTime" : @"StartTime",
              @"time" : @"Time",
+             @"timeZone" : @"TimeZone",
              };
 }
 
@@ -2429,6 +2430,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"scheduledActionName" : @"ScheduledActionName",
              @"startTime" : @"StartTime",
              @"time" : @"Time",
+             @"timeZone" : @"TimeZone",
              };
 }
 
@@ -2473,6 +2475,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"recurrence" : @"Recurrence",
              @"scheduledActionName" : @"ScheduledActionName",
              @"startTime" : @"StartTime",
+             @"timeZone" : @"TimeZone",
              };
 }
 
