@@ -2515,7 +2515,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
 /**
- <p>The maximum number of functions to return.</p>
+ <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
