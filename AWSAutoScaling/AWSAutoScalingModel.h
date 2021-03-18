@@ -941,7 +941,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>An embedded object that specifies a mixed instances policy. The required parameters must be specified. If optional parameters are unspecified, their default values are used.</p><p>The policy includes parameters that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the parameters that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>An embedded object that specifies a mixed instances policy. The required properties must be specified. If optional properties are unspecified, their default values are used.</p><p>The policy includes properties that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy * _Nullable mixedInstancesPolicy;
 
@@ -2163,7 +2163,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- <p>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is <code>prioritized</code>, which is also the default value. This strategy uses the order of instance types in the overrides to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on.</p>
+ <p>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is <code>prioritized</code>, which is also the default value. This strategy uses the order of instance types in the <code>LaunchTemplateOverrides</code> to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable onDemandAllocationStrategy;
 
@@ -2178,7 +2178,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable onDemandPercentageAboveBaseCapacity;
 
 /**
- <p>Indicates how to allocate instances across Spot Instance pools. If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. Defaults to <code>lowest-price</code> if not specified.</p>
+ <p>Indicates how to allocate instances across Spot Instance pools. </p><p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. Defaults to <code>lowest-price</code> if not specified.</p><p>If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. Alternatively, you can use <code>capacity-optimized-prioritized</code> and set the order of instance types in the list of launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable spotAllocationStrategy;
 
@@ -2358,7 +2358,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- <p>Describes a launch template and overrides. </p><p>You specify these parameters as part of a mixed instances policy. </p><p>When you update the launch template or overrides, existing Amazon EC2 instances continue to run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination policies.</p>
+ <p>Describes a launch template and overrides. </p><p>You specify these properties as part of a mixed instances policy. </p><p>When you update the launch template or overrides, existing Amazon EC2 instances continue to run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination policies.</p>
  */
 @interface AWSAutoScalingLaunchTemplate : AWSModel
 
@@ -2369,7 +2369,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplateSpecification;
 
 /**
- <p>Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance. </p>
+ <p>Any properties that you specify override the same properties in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance. </p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingLaunchTemplateOverrides *> * _Nullable overrides;
 
@@ -2600,13 +2600,13 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- <p>Describes a mixed instances policy for an Auto Scaling group. With mixed instances, your Auto Scaling group can provision a combination of On-Demand Instances and Spot Instances across multiple instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can create a mixed instances policy for a new Auto Scaling group, or you can create it for an existing group by updating the group to specify <code>MixedInstancesPolicy</code> as the top-level parameter instead of a launch configuration or launch template.</p>
+ <p>Describes a mixed instances policy for an Auto Scaling group. With mixed instances, your Auto Scaling group can provision a combination of On-Demand Instances and Spot Instances across multiple instance types. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>You can create a mixed instances policy for a new Auto Scaling group, or you can create it for an existing group by updating the group to specify <code>MixedInstancesPolicy</code> as the top-level property instead of a launch configuration or launch template.</p>
  */
 @interface AWSAutoScalingMixedInstancesPolicy : AWSModel
 
 
 /**
- <p>Specifies the instances distribution. If not provided, the value for each parameter in <code>InstancesDistribution</code> uses a default value.</p>
+ <p>Specifies the instances distribution. If not provided, the value for each property in <code>InstancesDistribution</code> uses a default value.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingInstancesDistribution * _Nullable instancesDistribution;
 
@@ -2891,7 +2891,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable desiredCapacity;
 
 /**
- <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.</p>
+ <p>The date and time for the recurring schedule to end, in UTC.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -2906,7 +2906,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>The recurring schedule for this action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information about this format, see <a href="http://crontab.org">Crontab</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p>
+ <p>The recurring schedule for this action. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information about this format, see <a href="http://crontab.org">Crontab</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p><p>Cron expressions use Universal Coordinated Time (UTC) by default.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable recurrence;
 
@@ -2924,6 +2924,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>This parameter is no longer used.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable time;
+
+/**
+ <p>Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default. </p><p>Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
 
 @end
 
@@ -2964,10 +2969,20 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @end
 
 /**
- <p>Describes information used to start an instance refresh. </p>
+ <p>Describes information used to start an instance refresh. </p><p>All properties are optional. However, if you specify a value for <code>CheckpointDelay</code>, you must also provide a value for <code>CheckpointPercentages</code>. </p>
  */
 @interface AWSAutoScalingRefreshPreferences : AWSModel
 
+
+/**
+ <p>The amount of time, in seconds, to wait after a checkpoint before continuing. This property is optional, but if you specify a value for it, you must also specify a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code> and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults to <code>3600</code> (1 hour). </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable checkpointDelay;
+
+/**
+ <p>Threshold values for each checkpoint in ascending order. Each number must be unique. To replace all instances in the Auto Scaling group, the last number in the array must be <code>100</code>.</p><p>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable checkpointPercentages;
 
 /**
  <p>The number of seconds until a newly launched instance is configured and ready to use. During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The default is to use the value for the health check grace period defined for the group.</p>
@@ -3156,10 +3171,15 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  */
 @property (nonatomic, strong) NSDate * _Nullable time;
 
+/**
+ <p>The time zone for the cron expression.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
+
 @end
 
 /**
- <p>Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.</p><p>When updating a scheduled scaling action, all optional parameters are left unchanged if not specified.</p>
+ <p>Describes information used for one or more scheduled scaling action updates in a <a>BatchPutScheduledUpdateGroupAction</a> operation.</p>
  Required parameters: [ScheduledActionName]
  */
 @interface AWSAutoScalingScheduledUpdateGroupActionRequest : AWSModel
@@ -3171,7 +3191,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable desiredCapacity;
 
 /**
- <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.</p>
+ <p>The date and time for the recurring schedule to end, in UTC.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -3186,7 +3206,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information about this format, see <a href="http://crontab.org">Crontab</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p>
+ <p>The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>). For more information about this format, see <a href="http://crontab.org">Crontab</a>.</p><p>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>, they form the boundaries of when the recurring action starts and stops.</p><p>Cron expressions use Universal Coordinated Time (UTC) by default.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable recurrence;
 
@@ -3199,6 +3219,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</p><p>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.</p><p>If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>Specifies the time zone for a cron expression. If a time zone is not provided, UTC is used by default. </p><p>Valid values are the canonical names of the IANA time zones, derived from the IANA Time Zone Database (such as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
 
 @end
 
@@ -3556,7 +3581,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional properties are left unchanged if not specified. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy * _Nullable mixedInstancesPolicy;
 
