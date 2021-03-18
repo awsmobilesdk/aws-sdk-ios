@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingBatchDeleteScheduledActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
 
@@ -284,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> *)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelInstanceRefresh service method.
 
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingCancelInstanceRefreshAnswer *> *)cancelInstanceRefresh:(AWSAutoScalingCancelInstanceRefreshType *)request;
 
 /**
- <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelInstanceRefresh service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -695,7 +695,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeAutoScalingNotificationTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more instance refreshes.</p><p>You can determine the status of a request by looking at the <code>Status</code> parameter. The following are the possible statuses: </p><ul><li><p><code>Pending</code> - The request was created, but the operation has not started.</p></li><li><p><code>InProgress</code> - The operation is in progress.</p></li><li><p><code>Successful</code> - The operation completed successfully.</p></li><li><p><code>Failed</code> - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p></li><li><p><code>Cancelled</code> - The operation is cancelled. </p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Describes one or more instance refreshes.</p><p>You can determine the status of a request by looking at the <code>Status</code> parameter. The following are the possible statuses: </p><ul><li><p><code>Pending</code> - The request was created, but the operation has not started.</p></li><li><p><code>InProgress</code> - The operation is in progress.</p></li><li><p><code>Successful</code> - The operation completed successfully.</p></li><li><p><code>Failed</code> - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p></li><li><p><code>Cancelled</code> - The operation is cancelled. </p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceRefreshes service method.
 
@@ -707,7 +707,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeInstanceRefreshesAnswer *> *)describeInstanceRefreshes:(AWSAutoScalingDescribeInstanceRefreshesType *)request;
 
 /**
- <p>Describes one or more instance refreshes.</p><p>You can determine the status of a request by looking at the <code>Status</code> parameter. The following are the possible statuses: </p><ul><li><p><code>Pending</code> - The request was created, but the operation has not started.</p></li><li><p><code>InProgress</code> - The operation is in progress.</p></li><li><p><code>Successful</code> - The operation completed successfully.</p></li><li><p><code>Failed</code> - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p></li><li><p><code>Cancelled</code> - The operation is cancelled. </p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Describes one or more instance refreshes.</p><p>You can determine the status of a request by looking at the <code>Status</code> parameter. The following are the possible statuses: </p><ul><li><p><code>Pending</code> - The request was created, but the operation has not started.</p></li><li><p><code>InProgress</code> - The operation is in progress.</p></li><li><p><code>Successful</code> - The operation completed successfully.</p></li><li><p><code>Failed</code> - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities. </p></li><li><p><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started. </p></li><li><p><code>Cancelled</code> - The operation is cancelled. </p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceRefreshes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1308,7 +1308,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPolicyARNType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
 
@@ -1319,7 +1319,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1446,7 +1446,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingSetInstanceProtectionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts a new instance refresh operation, which triggers a rolling replacement of all previously launched instances in the Auto Scaling group with a new group of instances.</p><p>If successful, this call creates a new instance refresh request with a unique ID that you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a> API. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Starts a new instance refresh operation, which triggers a rolling replacement of all previously launched instances in the Auto Scaling group with a new group of instances.</p><p>If successful, this call creates a new instance refresh request with a unique ID that you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a> API. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StartInstanceRefresh service method.
 
@@ -1458,7 +1458,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingStartInstanceRefreshAnswer *> *)startInstanceRefresh:(AWSAutoScalingStartInstanceRefreshType *)request;
 
 /**
- <p>Starts a new instance refresh operation, which triggers a rolling replacement of all previously launched instances in the Auto Scaling group with a new group of instances.</p><p>If successful, this call creates a new instance refresh request with a unique ID that you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a> API. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances Based on an Instance Refresh</a>.</p>
+ <p>Starts a new instance refresh operation, which triggers a rolling replacement of all previously launched instances in the Auto Scaling group with a new group of instances.</p><p>If successful, this call creates a new instance refresh request with a unique ID that you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a> API. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances based on an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StartInstanceRefresh service method.
  @param completionHandler The completion handler to call when the load request is complete.
