@@ -691,6 +691,7 @@
 - (void) test_AWSEC2EbsInstanceBlockDevice API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsInstanceBlockDeviceSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsOptimizedInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EfaInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EgressOnlyInternetGateway API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticGpuAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticGpuHealth API_AVAILABLE(ios(11));
@@ -4053,6 +4054,10 @@
 
 - (void) test_AWSEC2EbsOptimizedInfo {
     [self validateSecureCodingForClass:[AWSEC2EbsOptimizedInfo class]];
+}
+
+- (void) test_AWSEC2EfaInfo {
+    [self validateSecureCodingForClass:[AWSEC2EfaInfo class]];
 }
 
 - (void) test_AWSEC2EgressOnlyInternetGateway {
