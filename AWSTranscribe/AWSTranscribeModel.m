@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -3855,6 +3855,9 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"mask"] == NSOrderedSame) {
             return @(AWSTranscribeVocabularyFilterMethodMask);
         }
+        if ([value caseInsensitiveCompare:@"tag"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyFilterMethodTag);
+        }
         return @(AWSTranscribeVocabularyFilterMethodUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3862,6 +3865,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"remove";
             case AWSTranscribeVocabularyFilterMethodMask:
                 return @"mask";
+            case AWSTranscribeVocabularyFilterMethodTag:
+                return @"tag";
             default:
                 return nil;
         }
