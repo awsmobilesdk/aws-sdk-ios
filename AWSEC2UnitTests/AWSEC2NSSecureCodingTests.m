@@ -227,6 +227,8 @@
 - (void) test_AWSEC2CreateNetworkInterfaceResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreatePlacementGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreatePlacementGroupResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateReplaceRootVolumeTaskRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateReplaceRootVolumeTaskResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateReservedInstancesListingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateReservedInstancesListingResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateRouteRequest API_AVAILABLE(ios(11));
@@ -542,6 +544,8 @@
 - (void) test_AWSEC2DescribePublicIpv4PoolsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeRegionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeRegionsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeReplaceRootVolumeTasksRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeReplaceRootVolumeTasksResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeReservedInstancesListingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeReservedInstancesListingsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeReservedInstancesModificationsRequest API_AVAILABLE(ios(11));
@@ -656,6 +660,8 @@
 - (void) test_AWSEC2DisableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableSerialConsoleAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableSerialConsoleAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableTransitGatewayRouteTablePropagationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableTransitGatewayRouteTablePropagationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableVgwRoutePropagationRequest API_AVAILABLE(ios(11));
@@ -691,6 +697,7 @@
 - (void) test_AWSEC2EbsInstanceBlockDevice API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsInstanceBlockDeviceSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsOptimizedInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EfaInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EgressOnlyInternetGateway API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticGpuAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticGpuHealth API_AVAILABLE(ios(11));
@@ -707,6 +714,8 @@
 - (void) test_AWSEC2EnableFastSnapshotRestoreSuccessItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableSerialConsoleAccessRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableSerialConsoleAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableTransitGatewayRouteTablePropagationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableTransitGatewayRouteTablePropagationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableVgwRoutePropagationRequest API_AVAILABLE(ios(11));
@@ -787,6 +796,8 @@
 - (void) test_AWSEC2GetPasswordDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSerialConsoleAccessStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSerialConsoleAccessStatusResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest API_AVAILABLE(ios(11));
@@ -1133,6 +1144,7 @@
 - (void) test_AWSEC2ReplaceNetworkAclAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceNetworkAclAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceNetworkAclEntryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ReplaceRootVolumeTask API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceRouteTableAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReplaceRouteTableAssociationResult API_AVAILABLE(ios(11));
@@ -2197,6 +2209,14 @@
 
 - (void) test_AWSEC2CreatePlacementGroupResult {
     [self validateSecureCodingForClass:[AWSEC2CreatePlacementGroupResult class]];
+}
+
+- (void) test_AWSEC2CreateReplaceRootVolumeTaskRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateReplaceRootVolumeTaskRequest class]];
+}
+
+- (void) test_AWSEC2CreateReplaceRootVolumeTaskResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateReplaceRootVolumeTaskResult class]];
 }
 
 - (void) test_AWSEC2CreateReservedInstancesListingRequest {
@@ -3459,6 +3479,14 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeRegionsResult class]];
 }
 
+- (void) test_AWSEC2DescribeReplaceRootVolumeTasksRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeReplaceRootVolumeTasksRequest class]];
+}
+
+- (void) test_AWSEC2DescribeReplaceRootVolumeTasksResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeReplaceRootVolumeTasksResult class]];
+}
+
 - (void) test_AWSEC2DescribeReservedInstancesListingsRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeReservedInstancesListingsRequest class]];
 }
@@ -3915,6 +3943,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableFastSnapshotRestoresResult class]];
 }
 
+- (void) test_AWSEC2DisableSerialConsoleAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableSerialConsoleAccessRequest class]];
+}
+
+- (void) test_AWSEC2DisableSerialConsoleAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableSerialConsoleAccessResult class]];
+}
+
 - (void) test_AWSEC2DisableTransitGatewayRouteTablePropagationRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableTransitGatewayRouteTablePropagationRequest class]];
 }
@@ -4055,6 +4091,10 @@
     [self validateSecureCodingForClass:[AWSEC2EbsOptimizedInfo class]];
 }
 
+- (void) test_AWSEC2EfaInfo {
+    [self validateSecureCodingForClass:[AWSEC2EfaInfo class]];
+}
+
 - (void) test_AWSEC2EgressOnlyInternetGateway {
     [self validateSecureCodingForClass:[AWSEC2EgressOnlyInternetGateway class]];
 }
@@ -4117,6 +4157,14 @@
 
 - (void) test_AWSEC2EnableFastSnapshotRestoresResult {
     [self validateSecureCodingForClass:[AWSEC2EnableFastSnapshotRestoresResult class]];
+}
+
+- (void) test_AWSEC2EnableSerialConsoleAccessRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableSerialConsoleAccessRequest class]];
+}
+
+- (void) test_AWSEC2EnableSerialConsoleAccessResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableSerialConsoleAccessResult class]];
 }
 
 - (void) test_AWSEC2EnableTransitGatewayRouteTablePropagationRequest {
@@ -4437,6 +4485,14 @@
 
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteResult {
     [self validateSecureCodingForClass:[AWSEC2GetReservedInstancesExchangeQuoteResult class]];
+}
+
+- (void) test_AWSEC2GetSerialConsoleAccessStatusRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetSerialConsoleAccessStatusRequest class]];
+}
+
+- (void) test_AWSEC2GetSerialConsoleAccessStatusResult {
+    [self validateSecureCodingForClass:[AWSEC2GetSerialConsoleAccessStatusResult class]];
 }
 
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsRequest {
@@ -5821,6 +5877,10 @@
 
 - (void) test_AWSEC2ReplaceNetworkAclEntryRequest {
     [self validateSecureCodingForClass:[AWSEC2ReplaceNetworkAclEntryRequest class]];
+}
+
+- (void) test_AWSEC2ReplaceRootVolumeTask {
+    [self validateSecureCodingForClass:[AWSEC2ReplaceRootVolumeTask class]];
 }
 
 - (void) test_AWSEC2ReplaceRouteRequest {
