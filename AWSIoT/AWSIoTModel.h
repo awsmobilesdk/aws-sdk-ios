@@ -10368,6 +10368,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  */
 @property (nonatomic, strong) NSString * _Nullable thingTypeName;
 
+/**
+ <p>When <code>true</code>, the action returns the thing resources with attribute values that start with the <code>attributeValue</code> provided.</p><p>When <code>false</code>, or not present, the action returns only the thing resources with attribute values that match the entire <code>attributeValue</code> provided. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable usePrefixAttributeValue;
+
 @end
 
 /**
