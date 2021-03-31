@@ -10085,6 +10085,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"maxResults" : @"maxResults",
              @"nextToken" : @"nextToken",
              @"thingTypeName" : @"thingTypeName",
+             @"usePrefixAttributeValue" : @"usePrefixAttributeValue",
              };
 }
 
