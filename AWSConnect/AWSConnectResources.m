@@ -6633,14 +6633,14 @@
     \"TagKeyList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TagKey\"},\
-      \"max\":200,\
+      \"max\":50,\
       \"min\":1\
     },\
     \"TagMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"TagKey\"},\
       \"value\":{\"shape\":\"TagValue\"},\
-      \"max\":200,\
+      \"max\":50,\
       \"min\":1\
     },\
     \"TagResourceRequest\":{\
@@ -6895,8 +6895,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"InstanceId\",\
-        \"QueueId\",\
-        \"MaxContacts\"\
+        \"QueueId\"\
       ],\
       \"members\":{\
         \"InstanceId\":{\
