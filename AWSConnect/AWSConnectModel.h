@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1808,7 +1808,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A structure that defines agent hierarchy group levels which can be used to filter search results. Important: Agent hierarchy group level information in search result is a snapshot, it does not represent current agent hierarchy who handled the contact.</p>
+ <p>A structure that defines search criteria for contacts using agent hierarchy group levels. For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @interface AWSConnectAgentHierarchyGroups : AWSModel
 
@@ -3056,13 +3056,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A structure that defines filters can be used to search within outputs analyzed by Amazon Connect Contact Lens in a contact.</p>
+ <p>A structure that defines search criteria for contacts using analysis outputs from Amazon Connect Contact Lens.</p>
  */
 @interface AWSConnectContactAnalysis : AWSModel
 
 
 /**
- <p>A structure that defines filters can be used to search with text within an Amazon Connect Contact Lens analyzed transcript.</p>
+ <p>Search criteria based on transcript analyzed by Amazon Connect Contact Lens.</p>
  */
 @property (nonatomic, strong) AWSConnectTranscript * _Nullable transcript;
 
@@ -3288,7 +3288,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectContactSearchSummaryAgentInfo * _Nullable agentInfo;
 
 /**
- <p>The Amazon Resource Name (ARN) of the contact</p>
+ <p>The Amazon Resource Name (ARN) of the contact.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -3318,7 +3318,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectContactInitiationMethod initiationMethod;
 
 /**
- <p>The date and time this contact was initiated, in UTC time. For INBOUND, this is when the contact arrived. For OUTBOUND, this is when the agent began dialing. For CALLBACK, this is when the callback contact was created. For TRANSFER and QUEUE_TRANSFER, this is when the transfer was initiated. For API, this is when the request arrived. For EXTERNAL_OUTBOUND, this is when the agent started dialing the external participant. For MONITOR, this is when the supervisor started listening to a contact.</p>
+ <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For API, this is when the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing the external participant. For <code>MONITOR</code>, this is when the supervisor started listening to a contact.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable initiationTimestamp;
 
@@ -13406,7 +13406,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance</p>
+ <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -13426,12 +13426,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectSearchCriteria * _Nullable searchCriteria;
 
 /**
- <p>Specifies a field to sort by and a sort order</p>
+ <p>Specifies a field to sort by and a sort order.</p>
  */
 @property (nonatomic, strong) AWSConnectSort * _Nullable sort;
 
 /**
- <p>Time range that you want to search results</p>
+ <p>Time range that you want to search results.</p>
  */
 @property (nonatomic, strong) AWSConnectSearchContactsTimeRange * _Nullable timeRange;
 
@@ -13461,7 +13461,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A structure of time range that you want to search results</p>
+ <p>A structure of time range that you want to search results.</p>
  Required parameters: [Type, StartTime, EndTime]
  */
 @interface AWSConnectSearchContactsTimeRange : AWSModel
@@ -13478,50 +13478,50 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
 /**
- <p>The type of timestamp to search</p>
+ <p>The type of timestamp to search.</p>
  */
 @property (nonatomic, assign) AWSConnectSearchContactsTimeRangeType types;
 
 @end
 
 /**
- <p>A structure of search criteria to be used to return contacts</p>
+ <p>A structure of search criteria to be used to return contacts.</p>
  */
 @interface AWSConnectSearchCriteria : AWSModel
 
 
 /**
- <p>The agent hierarchy groups</p>
+ <p>The agent hierarchy groups of the agent at the time of handling the contact.</p>
  */
 @property (nonatomic, strong) AWSConnectAgentHierarchyGroups * _Nullable agentHierarchyGroups;
 
 /**
- <p>The array of agent ids</p>
+ <p>The identifiers of agents who handled the contacts.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable agentIds;
 
 /**
- <p>The array of channels</p>
+ <p>The list of channels associated with contacts.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable channels;
 
 /**
- <p>The ContactAnalysis object used in search criteria</p>
+ <p>Search criteria based on analysis outputs from Amazon Connect Contact Lens.</p>
  */
 @property (nonatomic, strong) AWSConnectContactAnalysis * _Nullable contactAnalysis;
 
 /**
- <p>The array of initiaton methods</p>
+ <p>The list of initiation methods associated with contacts.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable initiationMethods;
 
 /**
- <p>The array of queue ids.</p>
+ <p>The list of queue IDs associated with contacts.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queueIds;
 
 /**
- <p>The SearchableContactAttributes object used in search criteria</p>
+ <p>The search criteria based on user-defined contact attributes that have been configured for contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by customer contact attributes</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>To use <code>SearchableContactAttributes</code> in a search request, the <code>GetContactAttributes</code> action is required to perform an API request. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions</a>Actions defined by Amazon Connect.</p></important>
  */
 @property (nonatomic, strong) AWSConnectSearchableContactAttributes * _Nullable searchableContactAttributes;
 
@@ -14078,38 +14078,38 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A structure that defines searchable contact attributes which can be used to filter search results. </p>
+ <p>A structure that defines search criteria based on user-defined contact attributes that are configured for contact search.</p>
  Required parameters: [Criteria]
  */
 @interface AWSConnectSearchableContactAttributes : AWSModel
 
 
 /**
- <p>The array of searhale contact attribute criteria</p>
+ <p>The list of criteria based on user-defined contact attributes that are configured for contact search.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectSearchableContactAttributesCriteria *> * _Nullable criteria;
 
 /**
- <p>The match type of multiple searchable contact attributes criteria.</p>
+ <p>The match type combining search criteria using multiple searchable contact attributes.</p>
  */
 @property (nonatomic, assign) AWSConnectSearchContactsMatchType matchType;
 
 @end
 
 /**
- <p>The criteria of searchable contact attributes.</p>
+ <p>The search criteria based on user-defned contact attribute key and values to search on.</p>
  Required parameters: [Key, Values]
  */
 @interface AWSConnectSearchableContactAttributesCriteria : AWSModel
 
 
 /**
- <p>The searchable contact attribute key</p>
+ <p>The key containing a searchable user-defined contact attribute.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
 /**
- <p>The array of contact attribute values used to filter search results.</p>
+ <p>The list of values to search for within a user-defined contact attribute.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
 
@@ -14459,7 +14459,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A structure that defines the sort by and a sort order</p>
+ <p>A structure that defineds the field name to sort by and a sort order.</p>
  Required parameters: [FieldName, Order]
  */
 @interface AWSConnectSort : AWSModel
@@ -15604,33 +15604,33 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The transcript object used to search results.</p>
+ <p>A structure that defines search criteria and matching logic to search for contacts by matching text with transcripts analyzed by Amazon Connect Contact Lens.</p>
  Required parameters: [Criteria]
  */
 @interface AWSConnectTranscript : AWSModel
 
 
 /**
- <p>The array of transcript search criteria</p>
+ <p>The list of search criteria based on Contact Lens conversational analytics transcript.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectTranscriptCriteria *> * _Nullable criteria;
 
 /**
- <p>The match type of multiple transcript criteira</p>
+ <p>The match type combining search criteria using multiple transcript criteria.</p>
  */
 @property (nonatomic, assign) AWSConnectSearchContactsMatchType matchType;
 
 @end
 
 /**
- <p>The transcript criteria used to search</p>
+ <p>A structure that defines search criteria base on words or phrases, participants in the Contact Lens conversational analytics transcript.</p>
  Required parameters: [ParticipantRole, SearchText, MatchType]
  */
 @interface AWSConnectTranscriptCriteria : AWSModel
 
 
 /**
- <p>The match type of search texts in a transcript criteria.</p>
+ <p>The match type combining search criteria using multiple search texts in a transcript criteria.</p>
  */
 @property (nonatomic, assign) AWSConnectSearchContactsMatchType matchType;
 
@@ -17687,7 +17687,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectUserSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition.</p><note><p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p></note>
+ <p>A leaf node condition which can be used to specify a string condition.</p><p>The currently supported values for <code>FieldName</code> are <code>username</code>, <code>firstname</code>, <code>lastname</code>, <code>resourceId</code>, <code>routingProfileId</code>, <code>securityProfileId</code>, <code>agentGroupId</code>, and <code>agentGroupPathIds</code>.</p>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
