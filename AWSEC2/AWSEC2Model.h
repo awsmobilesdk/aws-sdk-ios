@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1831,6 +1831,8 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM7I_metal_48xl,
     AWSEC2InstanceTypeR7I_metal_24xl,
     AWSEC2InstanceTypeR7I_metal_48xl,
+    AWSEC2InstanceTypeR7Iz_metal_16xl,
+    AWSEC2InstanceTypeR7Iz_metal_32xl,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
