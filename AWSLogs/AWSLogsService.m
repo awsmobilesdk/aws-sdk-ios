@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1733,6 +1733,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsStartLiveTailResponse *> *)startLiveTail:(AWSLogsStartLiveTailRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"StartLiveTail"
+                   outputClass:[AWSLogsStartLiveTailResponse class]];
+}
+
+- (void)startLiveTail:(AWSLogsStartLiveTailRequest *)request
+     completionHandler:(void (^)(AWSLogsStartLiveTailResponse *response, NSError *error))completionHandler {
+    [[self startLiveTail:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsStartLiveTailResponse *> * _Nonnull task) {
+        AWSLogsStartLiveTailResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
