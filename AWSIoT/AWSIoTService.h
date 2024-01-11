@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -6142,7 +6142,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdatePackage service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTUpdatePackageRequest
  @see AWSIoTUpdatePackageResponse
@@ -6155,7 +6155,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @param request A container for the necessary parameters to execute the UpdatePackage service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTUpdatePackageRequest
  @see AWSIoTUpdatePackageResponse
@@ -6167,7 +6167,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdatePackageConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageConfigurationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageConfigurationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`.
  
  @see AWSIoTUpdatePackageConfigurationRequest
  @see AWSIoTUpdatePackageConfigurationResponse
@@ -6180,7 +6180,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @param request A container for the necessary parameters to execute the UpdatePackageConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`.
  
  @see AWSIoTUpdatePackageConfigurationRequest
  @see AWSIoTUpdatePackageConfigurationResponse
@@ -6192,7 +6192,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdatePackageVersion service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdatePackageVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTUpdatePackageVersionRequest
  @see AWSIoTUpdatePackageVersionResponse
@@ -6205,7 +6205,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @param request A container for the necessary parameters to execute the UpdatePackageVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorThrottling`, `AWSIoTErrorConflict`, `AWSIoTErrorInternalServer`, `AWSIoTErrorValidation`, `AWSIoTErrorResourceNotFound`.
  
  @see AWSIoTUpdatePackageVersionRequest
  @see AWSIoTUpdatePackageVersionResponse

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -4212,6 +4212,7 @@
       \"output\":{\"shape\":\"UpdatePackageResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
@@ -4230,6 +4231,7 @@
       \"output\":{\"shape\":\"UpdatePackageConfigurationResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"}\
       ],\
@@ -4247,6 +4249,7 @@
       \"output\":{\"shape\":\"UpdatePackageVersionResponse\"},\
       \"errors\":[\
         {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictException\"},\
         {\"shape\":\"InternalServerException\"},\
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
@@ -7288,7 +7291,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -7356,7 +7359,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -9800,7 +9803,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       }\
     },\
@@ -12386,7 +12389,7 @@
         },\
         \"destinationPackageVersions\":{\
           \"shape\":\"DestinationPackageVersions\",\
-          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
+          \"documentation\":\"<p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle\\\">Package version lifecycle</a>.</p> <p> <b>Note:</b>The following Length Constraints relates to a single ARN. Up to 25 package version ARNs are allowed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The <code>Job</code> object contains details about a job.</p>\"\
