@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1831,6 +1831,8 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM7I_metal_48xl,
     AWSEC2InstanceTypeR7I_metal_24xl,
     AWSEC2InstanceTypeR7I_metal_48xl,
+    AWSEC2InstanceTypeR7Iz_metal_16xl,
+    AWSEC2InstanceTypeR7Iz_metal_32xl,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -18672,7 +18674,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -18728,7 +18730,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -18779,7 +18781,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -27573,6 +27575,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ARN of the Amazon ECS or Fargate task to which the volume is attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResource;
+
+/**
  <p>The time stamp when the attachment initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable attachTime;
@@ -27591,6 +27598,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the EBS volume.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeId;
+
+/**
+ <p>The ID of the Amazon Web Services account that owns the volume.</p><p>This parameter is returned only for volumes that are attached to Fargate tasks.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeOwnerId;
 
 @end
 
@@ -28539,7 +28551,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The mode in which to enable block public access for snapshots for the Region. Specify one of the following values:</p><ul><li><p><code>block-all-sharing</code> - Prevents all public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. Additionally, snapshots that are already publicly shared are treated as private and they are no longer publicly available.</p><note><p>If you enable block public access for snapshots in <code>block-all-sharing</code> mode, it does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p></note></li><li><p><code>block-new-sharing</code> - Prevents only new public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. However, snapshots that are already publicly shared, remain publicly available.</p></li></ul>
+ <p>The mode in which to enable block public access for snapshots for the Region. Specify one of the following values:</p><ul><li><p><code>block-all-sharing</code> - Prevents all public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. Additionally, snapshots that are already publicly shared are treated as private and they are no longer publicly available.</p><note><p>If you enable block public access for snapshots in <code>block-all-sharing</code> mode, it does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.</p></note></li><li><p><code>block-new-sharing</code> - Prevents only new public sharing of snapshots in the Region. Users in the account will no longer be able to request new public sharing. However, snapshots that are already publicly shared, remain publicly available.</p></li></ul><p><code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
  */
 @property (nonatomic, assign) AWSEC2SnapshotBlockPublicAccessState state;
 
@@ -30557,7 +30569,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p><p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -30905,7 +30917,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+ <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -32003,7 +32015,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable targetCapacity;
 
 /**
- <p>The unit for the target capacity.</p><p>Default: <code>units</code> (translates to number of instances)</p>
+ <p>The unit for the target capacity.</p>
  */
 @property (nonatomic, assign) AWSEC2TargetCapacityUnitType targetCapacityUnitType;
 
@@ -35227,7 +35239,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
 /**
- <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code> (in other words, set the use of IMDSv2 to <code>optional</code>) or <code>required</code> (in other words, set the use of IMDSv2 to <code>required</code>).</p><ul><li><p><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without a session token in your request. If you retrieve the IAM role credentials without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials are returned.</p></li><li><p><code>required</code> - When IMDSv2 is required, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: <code>optional</code></p>
+ <p>Indicates whether IMDSv2 is required.</p><ul><li><p><code>optional</code> - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</p></li><li><p><code>required</code> - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI) for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2HttpTokensState httpTokens;
 
@@ -35260,7 +35272,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
 /**
- <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is <code>optional</code> (in other words, indicates whether the use of IMDSv2 is <code>optional</code>) or <code>required</code> (in other words, indicates whether the use of IMDSv2 is <code>required</code>).</p><ul><li><p><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without a session token in your request. If you retrieve the IAM role credentials without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials are returned.</p></li><li><p><code>required</code> - When IMDSv2 is required, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: <code>optional</code></p>
+ <p>Indicates whether IMDSv2 is required.</p><ul><li><p><code>optional</code> - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</p></li><li><p><code>required</code> - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2HttpTokensState httpTokens;
 
@@ -40606,7 +40618,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceAttributeName attribute;
 
 /**
- <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is deleted when the instance is terminated.</p><p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is deleted when the instance is terminated. You can't modify the <code>DeleteOnTermination</code> attribute for volumes that are attached to Fargate tasks.</p><p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceBlockDeviceMappingSpecification *> * _Nullable blockDeviceMappings;
 
@@ -40919,7 +40931,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
 /**
- <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code> (in other words, set the use of IMDSv2 to <code>optional</code>) or <code>required</code> (in other words, set the use of IMDSv2 to <code>required</code>).</p><ul><li><p><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without a session token in your request. If you retrieve the IAM role credentials without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials are returned.</p></li><li><p><code>required</code> - When IMDSv2 is required, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: <code>optional</code></p>
+ <p>Indicates whether IMDSv2 is required.</p><ul><li><p><code>optional</code> - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</p></li><li><p><code>required</code> - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p></li></ul><p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI) for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2HttpTokensState httpTokens;
 
@@ -50243,7 +50255,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p>
+ <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p><p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
 
@@ -51746,7 +51758,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable targetCapacity;
 
 /**
- <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p><p>Default: <code>units</code> (translates to number of instances)</p>
+ <p>The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.</p><p>Default: <code>units</code> (the number of instances)</p>
  */
 @property (nonatomic, assign) AWSEC2TargetCapacityUnitType targetCapacityUnitType;
 
@@ -52402,7 +52414,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable code;
 
 /**
- <p>The message for the state change.</p><ul><li><p><code>Server.InsufficientInstanceCapacity</code>: There was insufficient capacity available to satisfy the launch request.</p></li><li><p><code>Server.InternalError</code>: An internal error caused the instance to terminate during launch.</p></li><li><p><code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled retirement.</p></li><li><p><code>Server.SpotInstanceShutdown</code>: The instance was stopped because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p></li><li><p><code>Server.SpotInstanceTermination</code>: The instance was terminated because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p></li><li><p><code>Client.InstanceInitiatedShutdown</code>: The instance was shut down using the <code>shutdown -h</code> command from the instance.</p></li><li><p><code>Client.InstanceTerminated</code>: The instance was terminated or rebooted during AMI creation.</p></li><li><p><code>Client.InternalError</code>: A client error caused the instance to terminate during launch.</p></li><li><p><code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not found.</p></li><li><p><code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the instance.</p></li><li><p><code>Client.UserInitiatedShutdown</code>: The instance was shut down using the Amazon EC2 API.</p></li><li><p><code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your account limits.</p></li></ul>
+ <p>The message for the state change.</p><ul><li><p><code>Server.InsufficientInstanceCapacity</code>: There was insufficient capacity available to satisfy the launch request.</p></li><li><p><code>Server.InternalError</code>: An internal error caused the instance to terminate during launch.</p></li><li><p><code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled retirement.</p></li><li><p><code>Server.SpotInstanceShutdown</code>: The instance was stopped because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p></li><li><p><code>Server.SpotInstanceTermination</code>: The instance was terminated because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.</p></li><li><p><code>Client.InstanceInitiatedShutdown</code>: The instance was shut down from the operating system of the instance.</p></li><li><p><code>Client.InstanceTerminated</code>: The instance was terminated or rebooted during AMI creation.</p></li><li><p><code>Client.InternalError</code>: A client error caused the instance to terminate during launch.</p></li><li><p><code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not found.</p></li><li><p><code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the instance.</p></li><li><p><code>Client.UserInitiatedShutdown</code>: The instance was shut down using the Amazon EC2 API.</p></li><li><p><code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your account limits.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -52891,7 +52903,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or <code>On-Demand</code>.</p>
+ <p>The default target capacity type.</p>
  */
 @property (nonatomic, assign) AWSEC2DefaultTargetCapacityType defaultTargetCapacityType;
 
@@ -52906,26 +52918,26 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable spotTargetCapacity;
 
 /**
- <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p><p>Default: <code>units</code> (translates to number of instances)</p>
+ <p>The unit for the target capacity.</p>
  */
 @property (nonatomic, assign) AWSEC2TargetCapacityUnitType targetCapacityUnitType;
 
 /**
- <p>The number of units to request, filled using <code>DefaultTargetCapacityType</code>.</p>
+ <p>The number of units to request, filled the default target capacity type.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable totalTargetCapacity;
 
 @end
 
 /**
- <p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
+ <p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn't met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  Required parameters: [TotalTargetCapacity]
  */
 @interface AWSEC2TargetCapacitySpecificationRequest : AWSModel
 
 
 /**
- <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or <code>On-Demand</code>.</p>
+ <p>The default target capacity type.</p>
  */
 @property (nonatomic, assign) AWSEC2DefaultTargetCapacityType defaultTargetCapacityType;
 
@@ -52940,12 +52952,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable spotTargetCapacity;
 
 /**
- <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p><p>Default: <code>units</code> (translates to number of instances)</p>
+ <p>The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.</p><p>Default: <code>units</code> (the number of instances)</p>
  */
 @property (nonatomic, assign) AWSEC2TargetCapacityUnitType targetCapacityUnitType;
 
 /**
- <p>The number of units to request, filled using <code>DefaultTargetCapacityType</code>.</p>
+ <p>The number of units to request, filled using the default target capacity type.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable totalTargetCapacity;
 
@@ -56390,6 +56402,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ARN of the Amazon ECS or Fargate task to which the volume is attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResource;
+
+/**
  <p>The time stamp when the attachment initiated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable attachTime;
@@ -56400,14 +56417,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>The device name.</p>
+ <p>The device name.</p><p>If the volume is attached to a Fargate task, this parameter returns <code>null</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable device;
 
 /**
- <p>The ID of the instance.</p>
+ <p>The ID of the instance.</p><p>If the volume is attached to a Fargate task, this parameter returns <code>null</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The service principal of Amazon Web Services service that owns the underlying instance to which the volume is attached.</p><p>This parameter is returned only for volumes that are attached to Fargate tasks.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceOwningService;
 
 /**
  <p>The attachment state of the volume.</p>
