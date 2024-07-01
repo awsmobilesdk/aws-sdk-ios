@@ -555,6 +555,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAgentsCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"agentIds" : @"AgentIds",
+             };
+}
+
+@end
+
 @implementation AWSConnectAllowedCapabilities
 
 + (BOOL)supportsSecureCoding {
@@ -1415,10 +1429,15 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"ComparisonOperator",
+             @"matchCriteria" : @"MatchCriteria",
              @"name" : @"Name",
              @"proficiencyLevel" : @"ProficiencyLevel",
              @"value" : @"Value",
              };
+}
+
++ (NSValueTransformer *)matchCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectMatchCriteria class]];
 }
 
 @end
@@ -1469,6 +1488,74 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"potentialQualityIssues" : @"PotentialQualityIssues",
              @"qualityScore" : @"QualityScore",
              };
+}
+
+@end
+
+@implementation AWSConnectAuthenticationProfile
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedIps" : @"AllowedIps",
+             @"arn" : @"Arn",
+             @"blockedIps" : @"BlockedIps",
+             @"createdTime" : @"CreatedTime",
+             @"detail" : @"Description",
+             @"identifier" : @"Id",
+             @"isDefault" : @"IsDefault",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"maxSessionDuration" : @"MaxSessionDuration",
+             @"name" : @"Name",
+             @"periodicSessionDuration" : @"PeriodicSessionDuration",
+             };
+}
+
++ (NSValueTransformer *)createdTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSConnectAuthenticationProfileSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             @"isDefault" : @"IsDefault",
+             @"lastModifiedRegion" : @"LastModifiedRegion",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -8029,6 +8116,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDescribeAuthenticationProfileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authenticationProfileId" : @"AuthenticationProfileId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeAuthenticationProfileResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authenticationProfile" : @"AuthenticationProfile",
+             };
+}
+
++ (NSValueTransformer *)authenticationProfileJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAuthenticationProfile class]];
+}
+
+@end
+
 @implementation AWSConnectDescribeContactEvaluationRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12684,6 +12804,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListAuthenticationProfilesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSConnectListAuthenticationProfilesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authenticationProfileSummaryList" : @"AuthenticationProfileSummaryList",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)authenticationProfileSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectAuthenticationProfileSummary class]];
+}
+
+@end
+
 @implementation AWSConnectListBotsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -15956,6 +16111,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)viewsSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectViewSummary class]];
+}
+
+@end
+
+@implementation AWSConnectMatchCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"agentsCriteria" : @"AgentsCriteria",
+             };
+}
+
++ (NSValueTransformer *)agentsCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAgentsCriteria class]];
 }
 
 @end
@@ -24232,6 +24405,26 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectUpdateAuthenticationProfileRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedIps" : @"AllowedIps",
+             @"authenticationProfileId" : @"AuthenticationProfileId",
+             @"blockedIps" : @"BlockedIps",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"periodicSessionDuration" : @"PeriodicSessionDuration",
+             };
 }
 
 @end

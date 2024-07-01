@@ -31,6 +31,7 @@
 - (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAgentsCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAllowedCapabilities API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnalyticsDataAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
@@ -65,6 +66,8 @@
 - (void) test_AWSConnectAttributeCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAudioFeatures API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAudioQualityMetricsInfo API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAuthenticationProfile API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAuthenticationProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectBatchAssociateAnalyticsDataSetRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectBatchAssociateAnalyticsDataSetResponse API_AVAILABLE(ios(11));
@@ -199,6 +202,8 @@
 - (void) test_AWSConnectDeleteVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeAgentStatusResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeAuthenticationProfileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeAuthenticationProfileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactEvaluationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactEvaluationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowModuleRequest API_AVAILABLE(ios(11));
@@ -371,6 +376,8 @@
 - (void) test_AWSConnectListAnalyticsDataAssociationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListAuthenticationProfilesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListAuthenticationProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListBotsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListBotsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListContactEvaluationsRequest API_AVAILABLE(ios(11));
@@ -454,6 +461,7 @@
 - (void) test_AWSConnectListViewVersionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListViewsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListViewsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectMatchCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaPlacement API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMeeting API_AVAILABLE(ios(11));
@@ -652,6 +660,7 @@
 - (void) test_AWSConnectUntagContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateAgentStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateAuthenticationProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateCaseActionDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesResponse API_AVAILABLE(ios(11));
@@ -796,6 +805,10 @@
     [self validateSecureCodingForClass:[AWSConnectAgentStatusSummary class]];
 }
 
+- (void) test_AWSConnectAgentsCriteria {
+    [self validateSecureCodingForClass:[AWSConnectAgentsCriteria class]];
+}
+
 - (void) test_AWSConnectAllowedCapabilities {
     [self validateSecureCodingForClass:[AWSConnectAllowedCapabilities class]];
 }
@@ -930,6 +943,14 @@
 
 - (void) test_AWSConnectAudioQualityMetricsInfo {
     [self validateSecureCodingForClass:[AWSConnectAudioQualityMetricsInfo class]];
+}
+
+- (void) test_AWSConnectAuthenticationProfile {
+    [self validateSecureCodingForClass:[AWSConnectAuthenticationProfile class]];
+}
+
+- (void) test_AWSConnectAuthenticationProfileSummary {
+    [self validateSecureCodingForClass:[AWSConnectAuthenticationProfileSummary class]];
 }
 
 - (void) test_AWSConnectAvailableNumberSummary {
@@ -1466,6 +1487,14 @@
 
 - (void) test_AWSConnectDescribeAgentStatusResponse {
     [self validateSecureCodingForClass:[AWSConnectDescribeAgentStatusResponse class]];
+}
+
+- (void) test_AWSConnectDescribeAuthenticationProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeAuthenticationProfileRequest class]];
+}
+
+- (void) test_AWSConnectDescribeAuthenticationProfileResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeAuthenticationProfileResponse class]];
 }
 
 - (void) test_AWSConnectDescribeContactEvaluationRequest {
@@ -2156,6 +2185,14 @@
     [self validateSecureCodingForClass:[AWSConnectListApprovedOriginsResponse class]];
 }
 
+- (void) test_AWSConnectListAuthenticationProfilesRequest {
+    [self validateSecureCodingForClass:[AWSConnectListAuthenticationProfilesRequest class]];
+}
+
+- (void) test_AWSConnectListAuthenticationProfilesResponse {
+    [self validateSecureCodingForClass:[AWSConnectListAuthenticationProfilesResponse class]];
+}
+
 - (void) test_AWSConnectListBotsRequest {
     [self validateSecureCodingForClass:[AWSConnectListBotsRequest class]];
 }
@@ -2486,6 +2523,10 @@
 
 - (void) test_AWSConnectListViewsResponse {
     [self validateSecureCodingForClass:[AWSConnectListViewsResponse class]];
+}
+
+- (void) test_AWSConnectMatchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectMatchCriteria class]];
 }
 
 - (void) test_AWSConnectMediaConcurrency {
@@ -3278,6 +3319,10 @@
 
 - (void) test_AWSConnectUpdateAgentStatusRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateAgentStatusRequest class]];
+}
+
+- (void) test_AWSConnectUpdateAuthenticationProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateAuthenticationProfileRequest class]];
 }
 
 - (void) test_AWSConnectUpdateCaseActionDefinition {

@@ -1909,6 +1909,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectDescribeAuthenticationProfileResponse *> *)describeAuthenticationProfile:(AWSConnectDescribeAuthenticationProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/authentication-profiles/{InstanceId}/{AuthenticationProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAuthenticationProfile"
+                   outputClass:[AWSConnectDescribeAuthenticationProfileResponse class]];
+}
+
+- (void)describeAuthenticationProfile:(AWSConnectDescribeAuthenticationProfileRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeAuthenticationProfileResponse *response, NSError *error))completionHandler {
+    [[self describeAuthenticationProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeAuthenticationProfileResponse *> * _Nonnull task) {
+        AWSConnectDescribeAuthenticationProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectDescribeContactResponse *> *)describeContact:(AWSConnectDescribeContactRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -3084,6 +3107,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListApprovedOriginsResponse *response, NSError *error))completionHandler {
     [[self listApprovedOrigins:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListApprovedOriginsResponse *> * _Nonnull task) {
         AWSConnectListApprovedOriginsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListAuthenticationProfilesResponse *> *)listAuthenticationProfiles:(AWSConnectListAuthenticationProfilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/authentication-profiles-summary/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"ListAuthenticationProfiles"
+                   outputClass:[AWSConnectListAuthenticationProfilesResponse class]];
+}
+
+- (void)listAuthenticationProfiles:(AWSConnectListAuthenticationProfilesRequest *)request
+     completionHandler:(void (^)(AWSConnectListAuthenticationProfilesResponse *response, NSError *error))completionHandler {
+    [[self listAuthenticationProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListAuthenticationProfilesResponse *> * _Nonnull task) {
+        AWSConnectListAuthenticationProfilesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4966,6 +5012,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateAgentStatus:(AWSConnectUpdateAgentStatusRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateAgentStatus:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateAuthenticationProfile:(AWSConnectUpdateAuthenticationProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/authentication-profiles/{InstanceId}/{AuthenticationProfileId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateAuthenticationProfile"
+                   outputClass:nil];
+}
+
+- (void)updateAuthenticationProfile:(AWSConnectUpdateAuthenticationProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateAuthenticationProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
