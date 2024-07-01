@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -231,15 +231,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSCognitoIdentityRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-
-        if (_configuration.headers == nil) {
-            _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"};
-        } else {
-            NSMutableDictionary *headers = [[NSMutableDictionary alloc] initWithDictionary:_configuration.headers];
-            headers[@"Content-Type"] = @"application/x-amz-json-1.1";
-            _configuration.headers = headers;
-        }
-
+        _configuration.headers = @{@"Content-Type" : @"application/x-amz-json-1.1"}; 
+		
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
     

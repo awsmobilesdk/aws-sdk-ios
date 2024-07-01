@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -63,11 +63,13 @@
     \"endpointPrefix\":\"cognito-identity\",\
     \"jsonVersion\":\"1.1\",\
     \"protocol\":\"json\",\
+    \"protocols\":[\"json\"],\
     \"serviceFullName\":\"Amazon Cognito Identity\",\
     \"serviceId\":\"Cognito Identity\",\
     \"signatureVersion\":\"v4\",\
     \"targetPrefix\":\"AWSCognitoIdentityService\",\
-    \"uid\":\"cognito-identity-2014-06-30\"\
+    \"uid\":\"cognito-identity-2014-06-30\",\
+    \"auth\":[\"aws.auth#sigv4\"]\
   },\
   \"operations\":{\
     \"CreateIdentityPool\":{\
@@ -172,7 +174,8 @@
         {\"shape\":\"ExternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.</p> <p>This is a public API. You do not need any credentials to call this API.</p>\",\
-      \"authtype\":\"none\"\
+      \"authtype\":\"none\",\
+      \"auth\":[\"smithy.api#noAuth\"]\
     },\
     \"GetId\":{\
       \"name\":\"GetId\",\
@@ -193,7 +196,8 @@
         {\"shape\":\"ExternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.</p> <p>This is a public API. You do not need any credentials to call this API.</p>\",\
-      \"authtype\":\"none\"\
+      \"authtype\":\"none\",\
+      \"auth\":[\"smithy.api#noAuth\"]\
     },\
     \"GetIdentityPoolRoles\":{\
       \"name\":\"GetIdentityPoolRoles\",\
@@ -231,7 +235,8 @@
         {\"shape\":\"ExternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p> <p>The OpenID token is valid for 10 minutes.</p> <p>This is a public API. You do not need any credentials to call this API.</p>\",\
-      \"authtype\":\"none\"\
+      \"authtype\":\"none\",\
+      \"auth\":[\"smithy.api#noAuth\"]\
     },\
     \"GetOpenIdTokenForDeveloperIdentity\":{\
       \"name\":\"GetOpenIdTokenForDeveloperIdentity\",\
@@ -442,7 +447,8 @@
         {\"shape\":\"ExternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.</p> <p>This is a public API. You do not need any credentials to call this API.</p>\",\
-      \"authtype\":\"none\"\
+      \"authtype\":\"none\",\
+      \"auth\":[\"smithy.api#noAuth\"]\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\

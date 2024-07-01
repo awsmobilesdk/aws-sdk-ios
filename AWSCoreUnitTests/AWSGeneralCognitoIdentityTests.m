@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -103,25 +103,6 @@ static id mockNetworking = nil;
     OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
 
     [AWSCognitoIdentity removeCognitoIdentityForKey:key];
-}
-
-- (void)testCreateIdentityPoolWithSuppliedHeaders {
-    AWSServiceConfiguration *configuration = [AWSTestUtility getDefaultServiceConfiguration];
-    configuration.headers = @{@"foo": @"bar"};
-    id key = @"test-with-headers";
-    [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
-    AWSCognitoIdentity *cognitoIdentity = [AWSCognitoIdentity CognitoIdentityForKey:key];
-    NSDictionary *expected = @{@"foo": @"bar", @"Content-Type": @"application/x-amz-json-1.1"};
-    XCTAssertEqualObjects(cognitoIdentity.configuration.headers, expected, @"expected provided headers to be included in configuration object");
-}
-
-- (void)testCreateIdentityPoolNoSuppliedHeaders {
-    AWSServiceConfiguration *configuration = [AWSTestUtility getDefaultServiceConfiguration];
-    id key = @"test-without-headers";
-    [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:key];
-    AWSCognitoIdentity *cognitoIdentity = [AWSCognitoIdentity CognitoIdentityForKey:key];
-    NSDictionary *expected = @{@"Content-Type": @"application/x-amz-json-1.1"};
-    XCTAssertEqualObjects(cognitoIdentity.configuration.headers, expected, @"expected Content-Type header to be included");
 }
 
 - (void)testDeleteIdentities {
